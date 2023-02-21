@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+
 
 const Homepage = () => {
+
   return (
-    <div>Homepage</div>
+    <main>
+      Homepage
+    
+    </main>
   );
 };
 
