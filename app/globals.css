@@ -97,23 +97,3 @@ button {
 } */
 
 
-:root {
-  --gradient-rotation: 0deg;
-}
-
-@property --gradient-rotation {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
-
-
-@keyframes spin {
-  0% {
-    --gradient-rotation: 0deg;
-  }
-  100% {
-    --gradient-rotation: 360deg;
-  }
-}
-

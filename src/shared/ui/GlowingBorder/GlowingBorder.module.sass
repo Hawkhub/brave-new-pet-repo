@@ -1,23 +1,24 @@
 $containerHeight: 60vh
 
-// default set of colors
-$clr1: #191c29 // card color
-$clr2: #212534 // container color
-$clr3: #5ddcff
-$clr4: #3c67e3
-$clr5: #4e00c2
+// default set of colors from https://codepen.io/gayane-gasparyan/pen/jOmaBQK
+// $clr1: #191c29 // card color
+// $clr2: #212534 // container color
+// $clr3: #5ddcff
+// $clr4: #3c67e3
+// $clr5: #4e00c2
 
-// set of colors from Kevin
-// $clr1: #052b2f
-// $clr2: #073438
-// $clr3: #0e4b50
-// $clr4: #2d8f85
-// $clr5: #637c64
+// set of colors from Kevin Powell
+$clr1: #052b2f
+$clr2: #073438
+$clr3: #0e4b50
+$clr4: #2d8f85
+$clr5: #637c64
 
-// @property --gradient-rotation
-//   syntax: "<angle>"
-//   initial-value: 0deg
-//   inherits: false
+
+@property --gradient-rotation
+  syntax: "<angle>"
+  initial-value: 0deg
+  inherits: false
 
 @keyframes spin
   0%
@@ -35,13 +36,13 @@ $clr5: #4e00c2
 
 .container::after,
 .container::before
+  --gradient-rotation: 0deg
   content: ""
   position: absolute
   inset: -.5rem
   background: conic-gradient(from var(--gradient-rotation), $clr3, $clr4, $clr5, $clr4, $clr3)
-  // background: conic-gradient(from 0.25turn at 50% 30%, $clr3, $clr4, $clr5, $clr4, $clr3)
   border-radius: inherit
-  animation: spin 10s linear infinite
+  animation: spin 5s linear infinite
   z-index: -1
 
 .container::after
