@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 
-import styles from './ExampleUiComponent.sass';
+import styles from './ExampleUiComponent.module.sass';
 
 type ExampleUiComponentProps = {
     color?: 'black' | 'green';

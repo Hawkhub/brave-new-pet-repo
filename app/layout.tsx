@@ -11,7 +11,10 @@ export default function RootLayout({
     <html>
       <head></head>
       <body>
-        {children}
+        <main>
+          {/* Nav should be here */}
+          {children}
+        </main>
       </body>
     </html>
   );
