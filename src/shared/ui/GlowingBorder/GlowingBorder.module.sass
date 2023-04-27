@@ -32,7 +32,6 @@ $clr5: #637c64
   height: $containerHeight
   aspect-ratio: 1 / 1.5
   border-radius: 0.5rem
-  font-size: 1.5em
 
 .container::after,
 .container::before
@@ -43,6 +42,7 @@ $clr5: #637c64
   background: conic-gradient(from var(--gradient-rotation), $clr3, $clr4, $clr5, $clr4, $clr3)
   border-radius: inherit
   animation: spin 5s linear infinite
+  transition: opacity .5s
   z-index: -1
 
 .container::after

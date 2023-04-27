@@ -4,20 +4,17 @@ import clsx from 'clsx';
 import styles from './ExampleUiComponent.module.sass';
 
 type ExampleUiComponentProps = {
-    color?: 'black' | 'green';
+    classname?: string;
     // Если нужен children, то указываем явно, не используем React.FC
     children?: React.ReactNode;
 };
 
 export const ExampleUiComponent = (props: ExampleUiComponentProps) => {
-    const { color, children } = props;
+    const { classname, children } = props;
 
     return (
         <div
-            className={clsx(styles.wrapper, {
-                [styles.green]: color === 'green',
-                [styles.black]: color === 'black',
-            })}
+            className={clsx(styles.wrapper, classname)}
         >
             {children}
         </div>
