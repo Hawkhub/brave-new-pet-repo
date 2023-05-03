@@ -10,7 +10,6 @@
   min-width: 100%
   min-height: 100%
   background-color: white
-  cursor: pointer
   position: relative
   &:after
     content: ""
@@ -19,7 +18,8 @@
     height: 100%
     left: 0
     top: 0
-    outline: 1px solid black
     display: block
-  &:hover
-    opacity: 0.8
+  &.hover
+    cursor: pointer
+    &:hover
+      opacity: 0.8

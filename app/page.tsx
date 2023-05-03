@@ -13,7 +13,11 @@ const Homepage = () => {
         <GlowingBorder className={styles.card} />
       </ScreenSized>
       <ScreenSized className={styles.secondScreen}>
-        <GlowingTiles className={styles.tiles} />
+        <GlowingTiles
+          className={styles.tiles}
+          // eventType={'mousemove'}
+          colorSuccession={['#fff', '#000']}
+        />
       </ScreenSized>
     </div>
   );

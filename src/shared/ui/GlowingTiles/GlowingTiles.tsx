@@ -5,18 +5,30 @@ import randomColor from 'randomcolor';
 import anime from 'animejs';
 import clsx from 'clsx';
 
+import { throttlify } from 'src/shared/lib/helpers/throttle';
 import styles from './GlowingTiles.module.sass';
 
 type GlowingTilesProps = {
   className?: string;
+  eventType?: 'mousemove' | 'click';
+  startColor?: string;
+  colorSuccession?: string[];
+  throttleDuration?: number;
 };
 
 export const GlowingTiles = (props: GlowingTilesProps) => {
-  const { className } = props;
+  const {
+    className,
+    eventType = 'click',
+    colorSuccession,
+    startColor = '#fff',
+    throttleDuration = 1500,
+  } = props;
 
   const [rows, setRows] = useState(0);
   const [columns, setColumns] = useState(0);
   const [total, setTotal] = useState(1);
+  const [currentColorIndex, setCurrentColorIndex] = useState<number>(0);
 
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -30,8 +42,8 @@ export const GlowingTiles = (props: GlowingTilesProps) => {
     setTotal(rows * columns);
 
     anime({
-      targets: styles['grid-item'],
-      backgroundColor: "#fff",
+      targets: '.' + styles['grid-item'],
+      backgroundColor: colorSuccession?.length ? colorSuccession[currentColorIndex] : startColor,
       duration: 0,
       easing: "linear"
     });
@@ -45,13 +57,34 @@ export const GlowingTiles = (props: GlowingTilesProps) => {
     const index = event.target.dataset.index;
 
     if(index === undefined) return;
-    
+
+    let chooseColor = () => {
+      if(!colorSuccession?.length) return randomColor();
+
+      let nextIndex = currentColorIndex + 1;
+
+      if(nextIndex >= colorSuccession.length) nextIndex = 0;
+      
+      setCurrentColorIndex(nextIndex);
+      return colorSuccession[nextIndex];
+    };
+
     anime({
-      targets: ".grid-item",
-      backgroundColor: randomColor(),
+      targets: '.' + styles['grid-item'],
+      backgroundColor: chooseColor(),
       delay: anime.stagger(50, { grid: [columns, rows], from: parseInt(index) })
     });
   };
+
+  const handleClick = () => {
+    if(eventType !== 'click') return;
+    return handleStagger;
+  }
+
+  const handleMousemove = () => {
+    if(eventType !== 'mousemove') return;
+    return throttlify(handleStagger, throttleDuration);
+  }
 
   useEffect(() => {
     getGridSize();
@@ -68,10 +101,13 @@ export const GlowingTiles = (props: GlowingTilesProps) => {
       >
           {[...Array(total)].map((x, i) => (
           <div
-              className="grid-item"
+              className={clsx(styles['grid-item'], {
+                [styles.hover]: eventType === 'click',
+              })}
               key={i}
               data-index={i}
-              onClick={handleStagger}
+              onClick={handleClick()}
+              onMouseMove={handleMousemove()}
           />
           ))}
       </div>
