@@ -21,7 +21,7 @@ export const GlowingTiles = (props: GlowingTilesProps) => {
     className,
     eventType = 'click',
     colorSuccession,
-    startColor = '#fff',
+    startColor,
     throttleDuration = 1500,
   } = props;
 
@@ -32,6 +32,8 @@ export const GlowingTiles = (props: GlowingTilesProps) => {
 
   const containerRef = useRef<HTMLDivElement>(null);
 
+  let initialColor = startColor || colorSuccession?.length && colorSuccession[0] || 'fff';
+
   const getGridSize = () => {
     if(!containerRef?.current) return;
     const columns = Math.floor(containerRef.current.offsetWidth / 50);
@@ -40,13 +42,6 @@ export const GlowingTiles = (props: GlowingTilesProps) => {
     setRows(rows);
     setColumns(columns);
     setTotal(rows * columns);
-
-    anime({
-      targets: '.' + styles['grid-item'],
-      backgroundColor: colorSuccession?.length ? colorSuccession[currentColorIndex] : startColor,
-      duration: 0,
-      easing: "linear"
-    });
   };
 
   const handleStagger: React.MouseEventHandler<HTMLDivElement> = (event) => {
@@ -93,6 +88,15 @@ export const GlowingTiles = (props: GlowingTilesProps) => {
       window.removeEventListener('resize', getGridSize);
     };
   }, []);
+
+  useEffect(() => {
+    anime({
+      targets: '.' + styles['grid-item'],
+      backgroundColor: colorSuccession?.length ? colorSuccession[currentColorIndex] : initialColor,
+      duration: 0,
+      easing: "linear"
+    });
+  }, [columns, rows]);
 
   return (
       <div

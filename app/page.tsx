@@ -20,7 +20,7 @@ const Homepage = () => {
         <GlowingTiles
           className={styles.tiles}
           eventType={'mousemove'}
-          colorSuccession={['#fff', '#000']}
+          colorSuccession={['#2f2f2f', '#ffba49', '#a44a3f']}
         />
       </ScreenSized>
       <ScreenSized className={styles.thirdScreen}>
