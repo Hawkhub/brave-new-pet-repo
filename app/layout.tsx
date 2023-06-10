@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Header } from 'src/widgets/Header';
 import './globals.css';
 
 
@@ -11,6 +12,7 @@ export default function RootLayout({
     <html>
       <head></head>
       <body>
+        <Header />
         <main>
           {/* Nav should be here */}
           {children}
