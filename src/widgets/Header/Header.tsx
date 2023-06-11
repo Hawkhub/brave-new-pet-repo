@@ -19,7 +19,10 @@ export const Header = (props: HeaderProps) => {
             className={clsx(styles.header)}
         >
             <div className={styles.leftPanel}>
-                <Link href={'https://didim.dev'}>
+                <Link
+                    className={styles.link}
+                    href={'https://didim.dev'}
+                >
                     <Logo
                         className={styles.logo}
                     />

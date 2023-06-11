@@ -8,6 +8,9 @@
     justify-content: space-between
     z-index: 1
 
+.logoLink
+    font-size: 0
+
 .logo
     height: 32px
     width: auto
@@ -15,9 +18,13 @@
     & > path:nth-child(1), & > path:nth-child(2)
         transition: all 0.35s ease
     & > path:nth-child(3), & > path:nth-child(4)
-        transition: all 0.2s ease
+        transition: filter 0.25s ease, transform 0.35s ease
     &:hover
+        & > path:nth-child(1)
+            transform: translateX(-3%)
+        & > path:nth-child(3)
+            transform: translateX(3%)
         & > path:nth-child(1), & > path:nth-child(2)
             fill: white
         & > path:nth-child(3), & > path:nth-child(4)
-            filter: drop-shadow(0px 0px 8px rgb(252, 239, 120))
+            filter: drop-shadow(0px 0px 16px rgb(252, 239, 120))
