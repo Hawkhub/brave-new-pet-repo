@@ -3,9 +3,8 @@
 import React from 'react';
 import clsx from 'clsx';
 
+import { InteractiveLogo } from 'src/shared/ui/InteractiveLogo';
 import { StyledNextLink } from 'src/shared/ui/StyledNextLink';
-import Link from 'next/link';
-import Logo from 'src/shared/assets/icons/ddm-logo.svg'
 
 import styles from './Header.module.sass';
 
@@ -19,14 +18,7 @@ export const Header = (props: HeaderProps) => {
             className={clsx(styles.header)}
         >
             <div className={styles.leftPanel}>
-                <Link
-                    className={styles.link}
-                    href={'https://didim.dev'}
-                >
-                    <Logo
-                        className={styles.logo}
-                    />
-                </Link>
+                <InteractiveLogo classname={styles.logo} />
             </div>
             <div className={styles.rightPanel}>
                 <StyledNextLink doubleUnderline href={'https://www.linkedin.com/in/didim-gersamia/'}>
