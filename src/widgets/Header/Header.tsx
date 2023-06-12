@@ -21,7 +21,10 @@ export const Header = (props: HeaderProps) => {
                 <InteractiveLogo classname={styles.logo} />
             </div>
             <div className={styles.rightPanel}>
-                <StyledNextLink doubleUnderline href={'https://www.linkedin.com/in/didim-gersamia/'}>
+                <StyledNextLink doubleUnderline href={'/blog'}>
+                    TechBlog
+                </StyledNextLink>
+                <StyledNextLink target="_blank" doubleUnderline href={'https://www.linkedin.com/in/didim-gersamia/'}>
                     LinkedIn
                 </StyledNextLink>
             </div>

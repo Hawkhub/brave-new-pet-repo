@@ -12,7 +12,7 @@ import styles from './index.module.sass';
 const Homepage = () => {
 
   return (
-    <div>
+    <div className={styles.page}>
       <ScreenSized className={styles.firstScreen}>
         <GlowingBorder className={styles.card} />
       </ScreenSized>

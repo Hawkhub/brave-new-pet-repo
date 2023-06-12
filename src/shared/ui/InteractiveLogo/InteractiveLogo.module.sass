@@ -1,18 +1,18 @@
 .logoLink
-    font-size: 0
+  font-size: 0
 
 .logo
-    overflow: visible
+  overflow: visible
+  & > path:nth-child(1), & > path:nth-child(2)
+    transition: all 0.35s ease
+  & > path:nth-child(3), & > path:nth-child(4)
+    transition: filter 0.25s ease, transform 0.35s ease
+  &:hover
+    & > path:nth-child(1)
+      transform: translateX(-3%)
+    & > path:nth-child(3)
+      transform: translateX(3%)
     & > path:nth-child(1), & > path:nth-child(2)
-        transition: all 0.35s ease
+      fill: white
     & > path:nth-child(3), & > path:nth-child(4)
-        transition: filter 0.25s ease, transform 0.35s ease
-    &:hover
-        & > path:nth-child(1)
-            transform: translateX(-3%)
-        & > path:nth-child(3)
-            transform: translateX(3%)
-        & > path:nth-child(1), & > path:nth-child(2)
-            fill: white
-        & > path:nth-child(3), & > path:nth-child(4)
-            filter: drop-shadow(0px 0px 16px #787a7e)
+      filter: drop-shadow(0px 0px 16px #787a7e)

@@ -16,7 +16,7 @@ export const InteractiveLogo = (props: InteractiveLogoProps) => {
     return (
         <Link
             className={clsx(styles.logoLink, classname)}
-            href={'https://didim.dev'}
+            href={'/'}
         >
             <Logo
                 className={styles.logo}
