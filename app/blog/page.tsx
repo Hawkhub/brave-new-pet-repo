@@ -35,6 +35,7 @@ const TechBlog = () => {
     <div className={styles.page}>
       {posts.map(post => (
         <FeedItem
+          key={post.id}
           {...post}
         />
       ))}
