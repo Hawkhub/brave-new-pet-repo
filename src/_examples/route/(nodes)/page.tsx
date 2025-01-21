@@ -1,6 +1,7 @@
 // import PocketBase from 'pocketbase';
+import React from 'react';
 import Link from 'next/link';
-import styles from './Nodes.module.css';
+import styles from './nodes.module.scss';
 import CreateNode from './CreateNode';
 
 // export const dynamic = 'auto',

@@ -17,6 +17,9 @@ const nextConfig = {
     });
     return config
   },
+  sassOptions: {
+    includePaths: ['./src'],
+  },
 }
 
 module.exports = nextConfig

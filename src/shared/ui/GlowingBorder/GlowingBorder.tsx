@@ -7,15 +7,17 @@ type GlowingBorderProps = {
     children?: React.ReactNode;
     className?: string;
     thin?: boolean;
+    noRotation?: boolean;
 };
 
 export const GlowingBorder = (props: GlowingBorderProps) => {
-    const { children, className, thin } = props;
+    const { children, className, thin, noRotation } = props;
 
     return (
         <div
             className={clsx(styles.container, className, {
                 [styles.thin]: thin,
+                [styles.noRotation]: noRotation,
             })}
         >
             {children}

@@ -51,6 +51,11 @@ $clr5: var(--primary-color)
 .container::after
   filter: blur(3.5rem)
 
+.noRotation
+  &::before,
+  &::after
+    animation: none
+
 .thin
   &::before,
   &::after

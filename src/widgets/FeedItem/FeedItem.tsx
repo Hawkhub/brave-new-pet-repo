@@ -23,6 +23,7 @@ export const FeedItem = (props: BlogPostProps) => {
     return (
         <GlowingBorder
             thin
+            noRotation
             className={clsx(styles.container, classname)}
         >
             {title}

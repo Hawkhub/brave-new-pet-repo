@@ -1,14 +1,5 @@
 'use client';
-
-// export default function Test() {
-//   return (
-//     <div>
-//       <h1>Create Note</h1>
-//     </div>
-//   );
-// }
-
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function CreateNote() {

@@ -24,7 +24,7 @@
       height: 3px
       z-index: 2
     &:before
-      background-color: var(--secondary-color)
+      background-color: var(--text-color)
       transition: all .25s cubic-bezier(.694,.048,.335,1) .15s
     &:after
       background-color: var(--primary-color)
@@ -32,3 +32,5 @@
     &:hover:before, &:hover:after
       width: 100%
       left: 0
+    &:hover:before
+      background-color: white
