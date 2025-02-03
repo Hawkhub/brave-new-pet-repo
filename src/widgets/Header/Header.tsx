@@ -22,7 +22,7 @@ export const Header = (props: HeaderProps) => {
             </div>
             <div className={styles.rightPanel}>
                 <StyledNextLink doubleUnderline href={'/blog'}>
-                    TechBlog
+                    Techblog
                 </StyledNextLink>
                 <StyledNextLink target="_blank" doubleUnderline href={'https://www.linkedin.com/in/didim-gersamia/'}>
                     LinkedIn

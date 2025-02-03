@@ -1,0 +1,1 @@
+export { CosmoBackground } from './CosmoBackground';
