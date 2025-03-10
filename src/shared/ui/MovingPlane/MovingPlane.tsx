@@ -4,8 +4,10 @@ import { useFrame } from "@react-three/fiber";
 import { useMemo, useRef } from "react";
 import { Color, ShaderMaterial } from "three";
 
-import vertexShader from './vertexShader';
-import fragmentShader from './fragmentShader';
+import vertexShader from './vertexShaderLogo';
+import fragmentShader from './fragmentShaderLogo';
+// import vertexShader from './vertexShader';
+// import fragmentShader from './fragmentShader';
 
 export const MovingPlane = () => {
   // This reference will give us direct access to the mesh
@@ -18,6 +20,7 @@ export const MovingPlane = () => {
       },
       u_colorA: { value: new Color("#FFFF25") },
       u_colorB: { value: new Color("#FF9525") },
+      u_patternColor: { value: new Color('#bc9c7c') },
     }), []
   );
 
@@ -29,7 +32,7 @@ export const MovingPlane = () => {
 
   return (
     <mesh position={[0, 0, 0]} rotation={[-Math.PI / 2, 0, 0]} scale={1.5}>
-      <planeGeometry args={[1, 1, 24, 24]} />
+      <planeGeometry args={[2, 2, 256, 256]} />
       <shaderMaterial
         fragmentShader={fragmentShader}
         vertexShader={vertexShader}
